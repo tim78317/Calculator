@@ -9,9 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Calculator Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form id="recForm" name="recForm" action="CalcController" method="POST">
+            <input type="text" name="length" placeholder="length" value="">
+            <input type="text" name="width" placeholder="width" value="">
+            <input type="submit" name="submit" value="Calculate">
+        </form>
     </body>
 </html>

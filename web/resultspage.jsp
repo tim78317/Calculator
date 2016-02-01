@@ -12,6 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            if(request.getAttribute("area") != null){
+                
+                %>
+                <h1>The area of the Rectangle is <%=request.getAttribute("area").toString()%></h1>
+               <% 
+            }
+
+        %>
+      
     </body>
 </html>

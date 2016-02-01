@@ -11,5 +11,11 @@ package model;
  */
 public class CircleService {
     
+    private double area;
+    
+    public double areaOfRectangle(double l, double w){
+        area = l*w;
+        return area;
+    }
     
 }
