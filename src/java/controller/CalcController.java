@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CircleService;
+import model.RectangleService;
+import model.TriangleService;
 
 /**
  *
@@ -34,14 +36,34 @@ public class CalcController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        if(request.getParameter("length") != null){
         double l = Double.parseDouble(request.getParameter("length"));
         double w = Double.parseDouble(request.getParameter("width"));
-        CircleService cs = new CircleService();
-        Double area = cs.areaOfRectangle(l, w);
-         request.setAttribute("area",area);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resultspage.jsp");
+        RectangleService rs = new RectangleService();
+        Double area = rs.areaOfRectangle(l, w);
+        request.setAttribute("area",area);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/calculator.jsp");
         dispatcher.forward(request, response);
+        }else if(request.getParameter("radius1") != null){
+        double r1 = Double.parseDouble(request.getParameter("radius1"));
+            CircleService cs = new CircleService();
+            Double areaOfCircle = cs.areaOfCircle(r1);
+            request.setAttribute("areaOfCircle",areaOfCircle);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/calculator.jsp");
+        dispatcher.forward(request, response);
+        }else if(request.getParameter("base") != null){
+        double s1 = Double.parseDouble(request.getParameter("base"));
+        double s2 = Double.parseDouble(request.getParameter("height"));
+            TriangleService ts = new TriangleService();
+            Double areaOfTriangle = ts.areaOfTriangle(s1, s2);
+            request.setAttribute("areaOfTriangle",areaOfTriangle);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/calculator.jsp");
+        dispatcher.forward(request, response);
+        }
+//         request.setAttribute("area",area);
+//            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/resultspage.jsp");
+//        dispatcher.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

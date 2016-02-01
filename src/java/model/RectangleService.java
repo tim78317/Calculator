@@ -11,8 +11,10 @@ package model;
  */
 public class RectangleService {
     
-    public double areaOfRectangle(double length, double width){
-        double area = length * width;
+   private double area;
+    
+    public double areaOfRectangle(double l, double w){
+        area = l*w;
         return area;
     }
     

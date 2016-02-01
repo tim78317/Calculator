@@ -11,5 +11,10 @@ package model;
  */
 public class TriangleService {
  
+    private double area;
     
+    public double areaOfTriangle(double b, double h){
+        area = 0.5 * (b * h);
+        return area;
+    }
 }

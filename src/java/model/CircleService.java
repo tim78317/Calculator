@@ -12,9 +12,12 @@ package model;
 public class CircleService {
     
     private double area;
+    private double radius;
+    private final static double pi = 3.14159;
     
-    public double areaOfRectangle(double l, double w){
-        area = l*w;
+    public double areaOfCircle(double r){
+        radius = (Math.pow(r, 2.00));
+        area = pi * radius;
         return area;
     }
     
