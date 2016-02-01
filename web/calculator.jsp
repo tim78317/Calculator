@@ -63,8 +63,8 @@
                if (request.getAttribute("area") == null) {
             %>
             <form id="recForm" name="recForm" action="CalcController" method="POST">
-                <input type="text" name="length" placeholder="length" value="">
-                <input type="text" name="width" placeholder="width" value="">
+                <input type="text" name="length" placeholder="length" value="" required>
+                <input type="text" name="width" placeholder="width" value="" required>
                 <input type="submit" name="submit" value="Calculate">
             </form>
              <%
@@ -74,8 +74,8 @@
 
             %>
             <form id="recForm" name="recForm" action="CalcController" method="POST">
-                <input type="text" name="length" placeholder="length" value="">
-                <input type="text" name="width" placeholder="width" value="">
+                <input type="text" name="length" placeholder="length" value="" required>
+                <input type="text" name="width" placeholder="width" value="" required>
                 <input type="submit" name="submit" value="Calculate">
             </form>
             <h1>The area of the Rectangle is <%=request.getAttribute("area").toString()%></h1>
@@ -93,7 +93,7 @@
                if (request.getAttribute("areaOfCircle") == null) {
             %>
             <form id="recForm" name="recForm" action="CalcController" method="POST">
-                <input type="text" name="radius1" placeholder="length" value="">
+                <input type="text" name="radius1" placeholder="radius" value="" required>
                 <input type="submit" name="submit" value="Calculate">
             </form>
              <%
@@ -103,7 +103,7 @@
 
             %>
             <form id="recForm" name="recForm" action="CalcController" method="POST">
-                <input type="text" name="radius1" placeholder="length" value="">
+                <input type="text" name="radius1" placeholder="radius" value="" required>
                 <input type="submit" name="submit" value="Calculate">
             </form>
             <h1>The area of the Circle is <%=request.getAttribute("areaOfCircle").toString()%></h1>
@@ -121,8 +121,8 @@
                if (request.getAttribute("areaOfTriangle") == null) {
             %>
             <form id="recForm" name="recForm" action="CalcController" method="POST">
-                <input type="text" name="base" placeholder="base" value="">
-                <input type="text" name="height" placeholder="height" value="">
+                <input type="text" name="base" placeholder="base" value="" required>
+                <input type="text" name="height" placeholder="height" value="" required>
                 <input type="submit" name="submit" value="Calculate">
             </form>
              <%
@@ -132,8 +132,8 @@
 
             %>
             <form id="recForm" name="recForm" action="CalcController" method="POST">
-                <input type="text" name="base" placeholder="base" value="">
-                <input type="text" name="height" placeholder="height" value="">
+                <input type="text" name="base" placeholder="base" value="" required>
+                <input type="text" name="height" placeholder="height" value="" required>
                 <input type="submit" name="submit" value="Calculate">
             </form>
             <h1>The area of the Triangle is <%=request.getAttribute("areaOfTriangle").toString()%></h1>
