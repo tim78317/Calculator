@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CircleService;
+import model.NodataService;
 import model.RectangleService;
 import model.TriangleService;
 
@@ -36,7 +37,33 @@ public class CalcController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        if(request.getParameter("length") != null){
+        String test = "fail";
+        String tri = "";
+        String rec = "";
+        String cir = "";
+        if(request.getParameter("width") == null || request.getParameter("length") == null){
+            rec = null;
+        }else if(request.getParameter("width").equals(rec) || request.getParameter("length").equals(rec)){
+            rec = "fail";
+        }
+        if(request.getParameter("radius1") == null){
+            cir = null;
+        }else if(request.getParameter("radius1").equals(cir)){
+            cir = "fail";
+        }
+        if(request.getParameter("base") == null || request.getParameter("height") == null){
+            tri = null;
+        }else if(request.getParameter("base").equals(tri) || request.getParameter("height").equals(tri)){
+            tri = "fail";
+        } 
+        
+        if(test.equals(rec) || test.equals(cir) || test.equals(tri)){
+            NodataService nds = new NodataService();
+            String errorDataMessage = nds.noDataMessage();
+             request.setAttribute("errorDataMessage",errorDataMessage);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/calculator.jsp");
+        dispatcher.forward(request, response);
+        }else if(request.getParameter("length") != null && request.getParameter("width") != null ){
         double l = Double.parseDouble(request.getParameter("length"));
         double w = Double.parseDouble(request.getParameter("width"));
         RectangleService rs = new RectangleService();
