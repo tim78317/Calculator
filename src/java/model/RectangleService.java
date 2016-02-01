@@ -15,6 +15,7 @@ public class RectangleService {
     
     public double areaOfRectangle(double l, double w){
         area = l*w;
+        area = Math.floor(area * 100)/100; 
         return area;
     }
     

@@ -5,6 +5,8 @@
  */
 package model;
 
+
+
 /**
  *
  * @author tliebl
@@ -18,6 +20,7 @@ public class CircleService {
     public double areaOfCircle(double r){
         radius = (Math.pow(r, 2.00));
         area = pi * radius;
+        area = Math.floor(area * 100)/100;
         return area;
     }
     

@@ -15,6 +15,7 @@ public class TriangleService {
     
     public double areaOfTriangle(double b, double h){
         area = 0.5 * (b * h);
+        area = Math.floor(area *100)/100;
         return area;
     }
 }
